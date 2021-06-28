@@ -114,3 +114,67 @@ body {
 .game-area__item.active.win {
     color: #fff;
 }
+
+/* Styles for strikethrough line */
+
+.strikethrough-line {
+    display: none;
+}
+
+.strikethrough-line.active-row {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+}
+
+.strikethrough-line.active-row.first-row-line {
+    top: 55px;
+}
+
+.strikethrough-line.active-row.second-row-line {
+    top: 209px;
+}
+
+.strikethrough-line.active-row.third-row-line {
+    top: 360px;
+}
+
+.strikethrough-line.active-column {
+    position: absolute;
+    display: block;
+    width: 2px;
+    height: 100%;
+    background-color: #fff;
+}
+
+.strikethrough-line.active-column.first-column-line {
+    left: 74px;
+}
+
+.strikethrough-line.active-column.second-column-line {
+    left: 224px;
+}
+
+.strikethrough-line.active-column.third-column-line {
+    left: 374px;
+}
+
+.strikethrough-line.active-column.diagonal-1 {
+    position: absolute;
+    display: block;
+    width: 2px;
+    height: 100%;
+    background-color: #fff;
+    transform: translateX(237px) rotate(-45deg) translateY(-19px);
+}
+
+.strikethrough-line.active-column.diagonal-2 {
+    position: absolute;
+    display: block;
+    width: 2px;
+    height: 100%;
+    background-color: #fff;
+    transform: translateX(207px) rotate(-135deg) translateY(20px);
+}
