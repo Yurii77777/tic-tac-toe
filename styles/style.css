@@ -2,6 +2,7 @@
 
 :root {
     --main-font-size: 10rem;
+    --color-white: #fff;
 }
 
 html {
@@ -46,12 +47,26 @@ body {
     font-size: 5rem;
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background-color: var(--color-white);
     opacity: 0.65;
 }
 
-.game-area__start-window-buttons-wrapper {
+.game-area__restart-quit-window {
     display: none;
+}
+
+.game-area__restart-quit-window.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 5rem;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-white);
+    opacity: 0.9;
+    z-index: 10;
 }
 
 .button {
@@ -95,7 +110,7 @@ body {
 .game-area__list li:nth-child(5),
 .game-area__list li:nth-child(7),
 .game-area__list li:nth-child(8) {
-    border-right: 1px dashed #fff;
+    border-right: 1px dashed var(--color-white);
 }
 
 .game-area__list li:nth-child(1),
@@ -104,7 +119,7 @@ body {
 .game-area__list li:nth-child(4),
 .game-area__list li:nth-child(5),
 .game-area__list li:nth-child(6) {
-    border-bottom: 1px dashed #fff;
+    border-bottom: 1px dashed var(--color-white);
 }
 
 .game-area__item.active {
@@ -112,7 +127,7 @@ body {
 }
 
 .game-area__item.active.win {
-    color: #fff;
+    color: var(--color-white);
 }
 
 /* Styles for strikethrough line */
@@ -126,7 +141,8 @@ body {
     display: block;
     width: 100%;
     height: 2px;
-    background-color: #fff;
+    background-color: var(--color-white);
+    z-index: 1;
 }
 
 .strikethrough-line.active-row.first-row-line {
@@ -146,7 +162,8 @@ body {
     display: block;
     width: 2px;
     height: 100%;
-    background-color: #fff;
+    background-color: var(--color-white);
+    z-index: 1;
 }
 
 .strikethrough-line.active-column.first-column-line {
@@ -166,8 +183,9 @@ body {
     display: block;
     width: 2px;
     height: 100%;
-    background-color: #fff;
+    background-color: var(--color-white);
     transform: translateX(237px) rotate(-45deg) translateY(-19px);
+    z-index: 1;
 }
 
 .strikethrough-line.active-column.diagonal-2 {
@@ -175,6 +193,7 @@ body {
     display: block;
     width: 2px;
     height: 100%;
-    background-color: #fff;
+    background-color: var(--color-white);
     transform: translateX(207px) rotate(-135deg) translateY(20px);
+    z-index: 1;
 }

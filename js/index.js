@@ -1,16 +1,30 @@
 "use strict";
 
-let gameArea = [
+const initialGameArea = [
     ["cell-1-1", "cell-1-2", "cell-1-3"],
     ["cell-2-1", "cell-2-2", "cell-2-3"],
     ["cell-3-1", "cell-3-2", "cell-3-3"],
 ];
 
-let gameAreaNode = document.querySelectorAll(".game-area__item");
-let startWindow = document.querySelectorAll(".game-area__start-window.active");
-let strikethroughLine = document.querySelectorAll(".strikethrough-line");
+const gameArea = [
+    ["cell-1-1", "cell-1-2", "cell-1-3"],
+    ["cell-2-1", "cell-2-2", "cell-2-3"],
+    ["cell-3-1", "cell-3-2", "cell-3-3"],
+];
 
-let progress = [];
+const gameAreaNode = document.querySelectorAll(".game-area__item");
+const startWindow = document.querySelectorAll(
+    ".game-area__start-window.active"
+);
+const strikethroughLine = document.querySelectorAll(".strikethrough-line");
+const modalWindow = document.querySelectorAll(
+    ".game-area__start-window-buttons-wrapper"
+);
+const restartQuitModalWindow = document.querySelectorAll(
+    ".game-area__restart-quit-window"
+);
+
+const progress = [];
 let userClick;
 
 document.addEventListener("click", (e) => {
@@ -56,7 +70,6 @@ document.addEventListener("click", (e) => {
         return;
     }
 
-    //TODO: Implement modal window in each block with congratilations and buttons Quit || Restart
     if (
         gameArea[0][0] === gameArea[1][0] &&
         gameArea[1][0] === gameArea[2][0]
@@ -146,8 +159,32 @@ function addClassWin(node1, node2, node3) {
     gameAreaNode[node1].className = "game-area__item active win";
     gameAreaNode[node2].className = "game-area__item active win";
     gameAreaNode[node3].className = "game-area__item active win";
+
+    setTimeout(() => {
+        restartQuitModalWindow[0].className =
+            "game-area__restart-quit-window active";
+    }, 1000);
 }
 
-//TODO: Activate modal windows
+function restartGame() {
+    progress.length = 0;
+    gameArea.length = 0;
+
+    initialGameArea.map((item) => {
+        gameArea.push(item);
+    });
+
+    restartQuitModalWindow[0].className = "game-area__restart-quit-window";
+
+    gameAreaNode.forEach((node) => {
+        node.className = "game-area__item";
+        node.innerText = "o";
+    });
+
+    strikethroughLine[0].className = "strikethrough-line";
+}
+
+//TODO: Fix rewritable moves
+//TODO: Activate button Quit
 //TODO: Add some css animations
 //TODO: Implement game mode with computer

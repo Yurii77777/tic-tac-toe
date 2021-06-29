@@ -11,20 +11,24 @@
     <body>
         <div class="wrapper">
             <section class="game-area">
-                <!-- Start window = modal window. 
-                    Display only on start or reset -->
+                <!-- Start window = modal windows. 
+                    Display only on start, restart or quit -->
                 <div class="game-area__start-window active">
                     <button type="button" class="button new-game">
                         New Game
                     </button>
+                </div>
 
-                    <div class="game-area__start-window-buttons-wrapper">
-                        <button type="button" class="button restart">
-                            Restart
-                        </button>
+                <div class="game-area__restart-quit-window">
+                    <button
+                        type="button"
+                        class="button restart"
+                        onclick="restartGame()"
+                    >
+                        Restart
+                    </button>
 
-                        <button type="button" class="button quit">Quit</button>
-                    </div>
+                    <button type="button" class="button quit">Quit</button>
                 </div>
 
                 <!-- Main game area -->
