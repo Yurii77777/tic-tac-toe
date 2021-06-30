@@ -1,11 +1,5 @@
 "use strict";
 
-const initialGameArea = [
-    ["cell-1-1", "cell-1-2", "cell-1-3"],
-    ["cell-2-1", "cell-2-2", "cell-2-3"],
-    ["cell-3-1", "cell-3-2", "cell-3-3"],
-];
-
 const gameArea = [
     ["cell-1-1", "cell-1-2", "cell-1-3"],
     ["cell-2-1", "cell-2-2", "cell-2-3"],
@@ -167,6 +161,12 @@ function addClassWin(node1, node2, node3) {
 }
 
 function restartGame() {
+    const initialGameArea = [
+        ["cell-1-1", "cell-1-2", "cell-1-3"],
+        ["cell-2-1", "cell-2-2", "cell-2-3"],
+        ["cell-3-1", "cell-3-2", "cell-3-3"],
+    ];
+
     progress.length = 0;
     gameArea.length = 0;
 
@@ -185,6 +185,11 @@ function restartGame() {
 }
 
 //TODO: Fix rewritable moves
+//TODO: Add modal window when tie
 //TODO: Activate button Quit
 //TODO: Add some css animations
 //TODO: Implement game mode with computer
+
+// I know there must be less global variables
+// Bad practice use map for push values because map return new array
+// And code will be more reusable if it will be written on functions
