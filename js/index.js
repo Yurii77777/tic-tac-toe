@@ -11,9 +11,6 @@ const startWindow = document.querySelectorAll(
     ".game-area__start-window.active"
 );
 const strikethroughLine = document.querySelectorAll(".strikethrough-line");
-const modalWindow = document.querySelectorAll(
-    ".game-area__start-window-buttons-wrapper"
-);
 const restartQuitModalWindow = document.querySelectorAll(
     ".game-area__restart-quit-window"
 );
@@ -41,6 +38,7 @@ document.addEventListener("click", (e) => {
         progress.length === 0
     ) {
         setXorO("x");
+
     } else if (
         (userClick.id === "cell-1-1" ||
             userClick.id === "cell-1-2" ||
@@ -55,7 +53,7 @@ document.addEventListener("click", (e) => {
     ) {
         let lastMove = progress[progress.length - 1];
 
-        if (lastMove === "x") {
+        if (lastMove === "x" &&  userClick.innerText !== "x") {
             setXorO("o");
         } else {
             setXorO("x");
@@ -129,7 +127,7 @@ document.addEventListener("click", (e) => {
  * Function set to the gameArea array value 'x' or 'y'
  * @value Set 'x' or 'o' like string
  */
-function setXorO(value) {
+const setXorO = (value) => {
     userClick.innerText = value;
     userClick.className = "game-area__item active";
     progress.push(value);
@@ -141,7 +139,7 @@ function setXorO(value) {
             }
         }
     }
-}
+};
 
 /**
  * Function change class name of item in gameAreaNode array
@@ -149,7 +147,7 @@ function setXorO(value) {
  * @node2 number of node item in gameAreaNode wich must change class name
  * @node3 number of node item in gameAreaNode wich must change class name
  */
-function addClassWin(node1, node2, node3) {
+const addClassWin = (node1, node2, node3) => {
     gameAreaNode[node1].className = "game-area__item active win";
     gameAreaNode[node2].className = "game-area__item active win";
     gameAreaNode[node3].className = "game-area__item active win";
@@ -158,9 +156,9 @@ function addClassWin(node1, node2, node3) {
         restartQuitModalWindow[0].className =
             "game-area__restart-quit-window active";
     }, 1000);
-}
+};
 
-function restartGame() {
+const restartGame = () => {
     const initialGameArea = [
         ["cell-1-1", "cell-1-2", "cell-1-3"],
         ["cell-2-1", "cell-2-2", "cell-2-3"],
@@ -182,9 +180,8 @@ function restartGame() {
     });
 
     strikethroughLine[0].className = "strikethrough-line";
-}
+};
 
-//TODO: Fix rewritable moves
 //TODO: Add modal window when tie
 //TODO: Activate button Quit
 //TODO: Add some css animations
