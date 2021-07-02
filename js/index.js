@@ -119,6 +119,7 @@ document.addEventListener("click", (e) => {
         strikethroughLine[0].className =
             "strikethrough-line active-column diagonal-2";
     } else {
+
         return;
     }
 });
@@ -182,8 +183,13 @@ const restartGame = () => {
     strikethroughLine[0].className = "strikethrough-line";
 };
 
+const quitGame = () => {
+    restartGame();
+
+    startWindow[0].className = 'game-area__start-window active';
+};
+
 //TODO: Add modal window when tie
-//TODO: Activate button Quit
 //TODO: Add some css animations
 //TODO: Implement game mode with computer
 
